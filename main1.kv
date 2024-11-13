@@ -1,0 +1,101 @@
+ScreenManagment:
+    Screen1:
+    Screen2:
+    Screen3:
+
+<Screen1>:
+    name: "Screen1"
+    padding: 10
+    canvas.before:
+        Rectangle:
+            size:self.size
+            source:"images/background.jpeg"
+    BoxLayout:
+        orientation:'vertical'
+        padding: 2
+        spacing: 5
+        Image:
+            source:'images/logo.png'
+            size_hint: .35,.35
+            pos_hint:{'center_x':0.5 ,'center_y':0.8}
+        Image:
+            source:"images/hi.gif"
+            # allow_stretch: True 
+            size_hint: .3,.3
+            pos_hint:{'center_x':0.5,'center_y':0.7 }
+        BoxLayout:
+            pos_hint:{'center_x':0.5,'center_y':0.35}
+            size_hint: .8,.3
+            padding: 5
+            spacing: 5
+            Image:
+                source:'images/loadingyellow.gif'
+                allow_stretch: True 
+                size_hint: .8,.8
+                anim_delay:0.07
+                # keep_ratio: False
+                keep_data: True
+            
+
+<Screen2>:
+    name: "Screen2"
+    padding: 10
+    canvas.before:
+        Rectangle:
+            size:self.size
+            source:"images/background.jpeg"
+    
+    BoxLayout:
+        orientation:'vertical'
+        Image:
+            source:'images/logo.png'
+            size_hint: .3,.3
+            pos_hint:{'center_x':0.5 }
+           
+            
+        Label:
+            text:'☞Press the button below to open the camera and capture hand movement\n☞Maintain a maximum distance of 30 cm from the camera\n☞The lighting should be bright to capture hand movement\n☞To save the  letter press \'a\'\n☞Remove the last letter press \'l\'\n☞Add word to sentence press \'space\'\n☞Clear word press \'c\'\n☞Clear sentence press \'x\'\n☞Quit press \'q\''
+            color: 212/255, 180/255, 20/255,1
+            font_name: 'Ubuntu-BoldItalic.ttf'
+            font_size: 20
+        RoundedButton:
+
+            text:'Display sign language'
+            pos_hint:{'center_x':0.5 }
+            size_hint:(.4,.2)
+            font_name: 'Ubuntu-BoldItalic.ttf'
+            on_press:root.manager.current_screen.open_image()
+        Label:
+            text:''
+            size_hint: 0.1,0.1
+        RoundedButton:
+
+            text:'Open Camera'
+            pos_hint:{'center_x':0.5 }
+            size_hint:(.4,.2)
+            font_name: 'Ubuntu-BoldItalic.ttf'
+            on_press:root.manager.current_screen.close_and_open_tkinter()
+        Label:
+            text:''
+            size_hint: 0.1,0.1
+        
+<RoundedButton@Button>
+    background_color:(0,0,0,0)
+    background_normal:''
+    canvas.before:
+        Color:
+            rgba:(212/255, 180/255, 20/255,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius:[30]
+
+<Screen3>:
+    name: "Screen3"
+    padding: 10
+    canvas.before:
+        Rectangle:
+            size:self.size
+            source:"images/background.jpeg"
+
+        
